@@ -1,261 +1,188 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>뜨거운바다 | AI 기반 크리에이티브 엔진</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLAZE OCEAN | AI-Powered Creative & Marketing Hub</title>
+    <meta name="description" content="AI의 효율성에 검증된 노하우를 더하다. 뜨거운바다는 데이터 기반의 전략과 크리에이티브를 연결하는 통합 마케팅 플랫폼입니다.">
+    <meta property="og:title" content="BLAZE OCEAN - AI Integrated Marketing">
+    <meta property="og:description" content="콘텐츠 포화 시대, AI 허브 시스템으로 압도적인 성과를 창출합니다.">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-black: #0a0a0a;
+            --neon-red: #ff3e3e;
+            --neon-blue: #00e5ff;
+            --neon-yellow: #f4d03f;
+            --text-gray: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
 
-  <!-- SEO -->
-  <meta name="description" content="뜨거운바다는 AI 기반 콘텐츠·영상·미디어 마케팅을 설계하는 크리에이티브 엔진입니다." />
-  <meta name="keywords" content="AI 마케팅, 콘텐츠 마케팅, 영상 제작, 크리에이티브 엔진, 마케팅 솔루션" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
+        body { background-color: var(--bg-black); color: white; overflow-x: hidden; }
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+        /* Navigation */
+        nav {
+            position: fixed; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between;
+            align-items: center; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+        }
+        .logo { font-weight: 900; letter-spacing: 2px; color: white; font-size: 1.5rem; }
+        .nav-links a { color: var(--text-gray); text-decoration: none; margin-left: 30px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
 
-  <style>
-    @font-face {
-      font-family: 'Pretendard';
-      src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-    }
+        /* Hero Section */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, #000 70%);
+        }
+        .hero h1 { font-size: 5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero .slogan { color: var(--neon-yellow); font-size: 1.2rem; margin-bottom: 40px; border: 1px solid var(--neon-yellow); padding: 10px 20px; border-radius: 50px; }
+        
+        /* Grid Layout for Services */
+        .section-title { text-align: center; font-size: 3rem; margin: 100px 0 50px; }
+        .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 10%; }
+        
+        .card {
+            background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 40px;
+            border-radius: 20px; position: relative; overflow: hidden; transition: 0.5s;
+        }
+        .card:hover { transform: translateY(-10px); border-color: white; }
+        .card.red { border-left: 5px solid var(--neon-red); }
+        .card.blue { border-left: 5px solid var(--neon-blue); }
+        .card h3 { font-size: 2rem; margin-bottom: 20px; }
+        .card ul { list-style: none; color: var(--text-gray); line-height: 2; }
 
-    :root {
-      --blue: #005BFF;
-      --dark: #0E1116;
-      --gray: #666;
-      --light: #F7F8FA;
-    }
+        /* AI Tech Stack (Google Focus) */
+        .tech-stack { padding: 100px 10%; text-align: center; }
+        .tech-icons { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; }
+        .tech-item { background: var(--glass); padding: 20px 40px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        /* Stats Section */
+        .stats { display: flex; justify-content: space-around; padding: 100px 10%; background: #111; }
+        .stat-item h4 { font-size: 3rem; color: var(--neon-blue); }
+        .stat-item p { color: var(--text-gray); }
 
-    body {
-      font-family: 'Pretendard', 'Noto Sans', sans-serif;
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    section {
-      padding: 120px 80px;
-    }
-
-    h1, h2, h3 {
-      font-weight: 700;
-    }
-
-    h1 {
-      font-size: 48px;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 36px;
-      margin-bottom: 24px;
-    }
-
-    p {
-      font-size: 18px;
-      color: var(--gray);
-      max-width: 720px;
-    }
-
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: #eaeaea;
-      margin: 80px 0;
-    }
-
-    .blue {
-      color: var(--blue);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-top: 40px;
-    }
-
-    .card {
-      padding: 32px;
-      border-radius: 16px;
-      background: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    }
-
-    footer {
-      background: var(--dark);
-      color: white;
-      padding: 120px 80px;
-    }
-
-    footer p {
-      color: #aaa;
-    }
-
-    @media (max-width: 960px) {
-      section {
-        padding: 80px 24px;
-      }
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-      h1 {
-        font-size: 36px;
-      }
-    }
-  </style>
+        /* Footer */
+        footer { padding: 100px 10%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .cta-btn { background: white; color: black; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-top: 30px; transition: 0.3s; }
+        .cta-btn:hover { background: var(--neon-blue); color: white; }
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section>
-  <h1>
-    AI 기반 콘텐츠·영상·미디어 마케팅을 설계하는<br/>
-    <span class="blue">크리에이티브 엔진, 뜨거운바다</span>
-  </h1>
-  <p style="margin-top:24px;">
-    우리는 AI를 활용해 더 빠르고, 더 일관되며, 더 확장 가능한 마케팅을 만듭니다.
-  </p>
-</section>
+    <nav>
+        <div class="logo">BLAZE OCEAN</div>
+        <div class="nav-links">
+            <a href="#about">WHO WE ARE</a>
+            <a href="#services">SERVICES</a>
+            <a href="#tech">AI STACK</a>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="mailto:hello@blaze-ocean.com">CONTACT</a>
+        </div>
+    </nav>
 
-<div class="divider"></div>
+    <section class="hero">
+        <div class="slogan">AI의 효율성에 검증된 노하우를 더하다 [cite: 77]</div>
+        <h1>INTEGRATED MARKETING<br><span style="color: var(--text-gray);">PLATFORM</span></h1>
+        <p style="max-width: 600px; margin-top: 20px; color: var(--text-gray);">
+            뜨거운바다는 기획의 '전략'과 콘텐츠의 '실행'을 빈틈없이 연결하는 AI 통합 마케팅 플랫폼입니다. [cite: 80, 81]
+        </p>
+    </section>
 
-<!-- WHY -->
-<section>
-  <h2>왜 뜨거운바다는 특별한가</h2>
-  <p>
-    콘텐츠는 넘치고, 실행은 느리며, 성과는 예측하기 어려운 시대.<br/>
-    뜨거운바다는 분절된 마케팅 프로세스를 하나의 엔진으로 통합했습니다.
-  </p>
+    <section id="services">
+        <h2 class="section-title">OUR SERVICES</h2>
+        <div class="service-grid">
+            <div class="card red">
+                <p style="color: var(--neon-red); font-weight: bold;">CREATIVE ENGINE</p>
+                <h3>크리에이티브 엔진 [cite: 58]</h3>
+                <ul>
+                    <li>OTT & 웹드라마 시리즈 제작 [cite: 12]</li>
+                    <li>고감도 시네마틱 브랜드 필름 [cite: 12]</li>
+                    <li>고효율 퍼포먼스 광고 소재 [cite: 12]</li>
+                    <li>글로벌 타겟 뮤직비디오 [cite: 12]</li>
+                </ul>
+            </div>
+            <div class="card blue">
+                <p style="color: var(--neon-blue); font-weight: bold;">MEDIA SOLUTION</p>
+                <h3>미디어 솔루션 [cite: 64]</h3>
+                <ul>
+                    <li>유튜브/인스타그램 채널 통합 운영 [cite: 12]</li>
+                    <li>AI 기반 매체 믹스 & 브랜드 전략 [cite: 13]</li>
+                    <li>실시간 ROI 최적화 및 타겟팅 [cite: 13]</li>
+                    <li>데이터 분석 기반 액션 플랜 [cite: 13]</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <div class="grid-3">
-    <div class="card">
-      <h3>문제 정의 중심</h3>
-      <p>유행이 아닌 브랜드와 시장의 실제 문제에서 출발합니다.</p>
-    </div>
-    <div class="card">
-      <h3>AI 기반 실행</h3>
-      <p>기획부터 제작, 운영까지 AI가 구조적으로 개입합니다.</p>
-    </div>
-    <div class="card">
-      <h3>결과 중심 설계</h3>
-      <p>보여주기식이 아닌 성과로 증명되는 마케팅.</p>
-    </div>
-  </div>
-</section>
+    <section id="tech" class="tech-stack">
+        <h2 class="section-title">AI TECHNOLOGY STACK</h2>
+        <p style="color: var(--text-gray);">Google 생태계를 중심으로 구축된 강력한 AI 워크플로우 [cite: 127]</p>
+        <div class="tech-icons">
+            <div class="tech-item">Google Gemini 1.5 Pro </div>
+            <div class="tech-item">Vertex AI </div>
+            <div class="tech-item">Google Ads AI </div>
+            <div class="tech-item">Runway Gen-3 </div>
+            <div class="tech-item">Midjourney v6 </div>
+        </div>
+    </section>
 
-<div class="divider"></div>
+    <section class="stats">
+        <div class="stat-item">
+            <h4>150K+</h4>
+            <p>최고 조회수 (더신사 법무법인) [cite: 44]</p>
+        </div>
+        <div class="stat-item">
+            <h4>2,100만</h4>
+            <p>누적 챌린지 조회수 (컨디션) [cite: 27]</p>
+        </div>
+        <div class="stat-item">
+            <h4>50%</h4>
+            <p>제작 리드타임 단축 [cite: 16]</p>
+        </div>
+    </section>
 
-<!-- CREATIVE ENGINE -->
-<section>
-  <h2>크리에이티브 엔진</h2>
-  <p>
-    뜨거운바다의 크리에이티브 엔진은<br/>
-    기획 · 제작 · 미디어 · 분석을 하나의 흐름으로 연결합니다.
-  </p>
+    <footer>
+        <h2>READY TO MAKE WAVES?</h2>
+        <p style="color: var(--text-gray); margin-top: 10px;">함께 비즈니스의 새로운 흐름을 만듭니다.</p>
+        <a href="mailto:hello@blaze-ocean.com" class="cta-btn">GET IN TOUCH </a>
+        <div style="margin-top: 50px; color: #444; font-size: 0.8rem;">
+            &copy; 2025 BLAZE OCEAN. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
 
-  <div class="grid-3">
-    <div class="card">
-      <h3>Planning</h3>
-      <p>데이터 기반 전략 설계</p>
-    </div>
-    <div class="card">
-      <h3>AI Optimization</h3>
-      <p>제작 효율과 품질을 동시에 향상</p>
-    </div>
-    <div class="card">
-      <h3>Performance</h3>
-      <p>성과 분석 및 반복 개선</p>
-    </div>
-  </div>
-</section>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-<div class="divider"></div>
+        // Hero Animation
+        gsap.from(".hero h1", { opacity: 0, y: 50, duration: 1.5, ease: "power4.out" });
+        gsap.from(".hero .slogan", { scale: 0.8, opacity: 0, delay: 0.5, duration: 1 });
 
-<!-- AI HUB -->
-<section>
-  <h2>AI 툴 활용 생태계</h2>
-  <p>
-    우리는 특정 툴에 의존하지 않고,<br/>
-    업무 목적에 맞는 AI를 조합해 사용합니다.
-  </p>
+        // Card Animation on Scroll
+        gsap.from(".card", {
+            scrollTrigger: {
+                trigger: ".service-grid",
+                start: "top 80%"
+            },
+            opacity: 0,
+            y: 30,
+            stagger: 0.2,
+            duration: 1
+        });
 
-  <div class="grid-3">
-    <div class="card">
-      <h3>전략 · 기획</h3>
-      <p>시장 분석, 인사이트 도출, 기획 구조화</p>
-    </div>
-    <div class="card">
-      <h3>콘텐츠 · 영상 제작</h3>
-      <p>이미지, 영상, 스토리보드 자동화</p>
-    </div>
-    <div class="card">
-      <h3>미디어 운영</h3>
-      <p>성과 예측 및 최적화 자동화</p>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SOLUTIONS -->
-<section>
-  <h2>마케팅 솔루션</h2>
-  <div class="grid-3">
-    <div class="card">
-      <h3>콘텐츠 마케팅</h3>
-      <p>브랜드 스토리 중심 콘텐츠 설계</p>
-    </div>
-    <div class="card">
-      <h3>영상 마케팅</h3>
-      <p>숏폼부터 캠페인 영상까지</p>
-    </div>
-    <div class="card">
-      <h3>통합형 미디어 솔루션</h3>
-      <p>기획–집행–성과 분석 원스톱</p>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PORTFOLIO -->
-<section>
-  <h2>포트폴리오</h2>
-  <p>
-    다양한 산업과 플랫폼에서<br/>
-    AI 기반 마케팅 성과를 만들어왔습니다.
-  </p>
-</section>
-
-<div class="divider"></div>
-
-<!-- INSIGHT -->
-<section>
-  <h2>인사이트</h2>
-  <p>
-    AI 마케팅, 콘텐츠 전략, 영상 트렌드에 대한<br/>
-    뜨거운바다의 시선을 공유합니다.
-  </p>
-</section>
-
-<!-- FOOTER / CONTACT -->
-<footer>
-  <h2>Ready to make waves?</h2>
-  <p style="margin-top:16px;">
-    지금, 뜨거운바다와 함께 시작하세요.
-  </p>
-  <p style="margin-top:32px;">
-    📩 hello@blaze-ocean.com
-  </p>
-</footer>
-
+        // Tech Items Hover Effect logic
+        document.querySelectorAll('.tech-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                gsap.to(item, { scale: 1.1, borderColor: "#00e5ff", color: "#00e5ff", duration: 0.3 });
+            });
+            item.addEventListener('mouseleave', () => {
+                gsap.to(item, { scale: 1, borderColor: "rgba(255,255,255,0.1)", color: "white", duration: 0.3 });
+            });
+        });
+    </script>
 </body>
 </html>
